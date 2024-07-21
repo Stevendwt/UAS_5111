@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            text-align: center; /* Center the logo */
+        }
+        .sidebar img {
+            max-width: 50%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+        .sidebar ul li a:hover {
+            background-color: #007bff;
+            color: white;
+            transform: scale(1.05);
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background-color: #f8f9fa;
+            min-width: 200px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+        .sidebar ul li:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .dropdown-content a:hover {
+            background-color: #007bff;
+            color: white;
+            transform: scale(1.05);
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .header button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+      <img src="logo.png" alt="Logo">
+        <h2>Beranda</h2>
+        <ul>
+          <li><a href="/beranda.html"><i class="fas fa-chalkboard"></i> Beranda</a></li>
+            <li>
+                <a href="#"><i class="fas fa-chart-line"></i> Rekapitulasi Nilai</a>
+                <div class="dropdown-content">
+                    <a href="/beranda.html"><i class="fas fa-home"></i> Beranda</a>
+                    <a href="/presensi.html"><i class="fas fa-user-check"></i> Presensi</a>
+                    <a href="/tugas.html"><i class="fas fa-tasks"></i> Tugas</a>
+                    <a href="#"><i class="fas fa-file-alt"></i> Responsi</a>
+                    <a href="#"><i class="fas fa-pencil-alt"></i> UTS</a>
+                    <a href="#"><i class="fas fa-clipboard-list"></i> UAS</a>
+                </div>
+            </li>
+            <li><a href="#"><i class="fas fa-plus-circle"></i> Tambah Data</a></li>
+            <li><a href="#"><i class="fas fa-user-graduate"></i> Bimbingan</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <button><i class="fas fa-chalkboard-teacher"></i> Dosen</button>
+            <button onclick="location.href='singin.html'"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>NIM</th>
+                        <th>Hari/Tanggal</th>
+                        <th>Hadir/Tidak</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>123456</td>
+                        <td>2024-07-08</td>
+                        <td>Hadir</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>789012</td>
+                        <td>2024-07-08</td>
+                        <td>Tidak Hadir</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Michael Johnson</td>
+                        <td>345678</td>
+                        <td>2024-07-08</td>
+                        <td>Hadir</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Sarah Brown</td>
+                        <td>901234</td>
+                        <td>2024-07-08</td>
+                        <td>Hadir</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>David Lee</td>
+                        <td>567890</td>
+                        <td>2024-07-08</td>
+                        <td>Tidak Hadir</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
